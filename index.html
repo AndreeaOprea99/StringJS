@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StringJS</title>
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+<nav>
+    <h1>String functions</h1>
+</nav>
+
+<main>
+    
+    <div>
+        <label class="label" for="component-name">Enter your string:</label>
+        <input type="text" class="textbox" placeholder="Your String" id="your-name">
+    </div>
+
+    <div class="table-container">
+        <table border="2">
+            <thead>
+                <tr>
+                    <th width="200px">Variation</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Number of characters</td>
+                    <td id="answer1"></td>
+                </tr>
+                <tr>
+                    <td>First character</td>
+                    <td id="answer2"></td>
+                </tr>
+                <tr>
+                    <td>Last character</td>
+                    <td id="answer3"></td>
+                </tr>
+                <tr>
+                    <td>Lower case</td>
+                    <td id="answer4"></td>
+                </tr>
+                <tr>
+                    <td>Upper case</td>
+                    <td id="answer5"></td>
+                </tr>
+                <tr>
+                    <td>Capitalize</td>
+                    <td id="answer6"></td>
+                </tr>
+                <tr>
+                    <td>Without leading<br>and trailing spaces</td>
+                    <td id="answer7"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<script>
+    
+function getNumberOfChars(name) {
+    return name.length;
+
+
+}
+
+function getFirstChar(name) {
+    return name[0];
+
+}
+
+function getLastChar(name) {
+    return name[name.length-1];
+
+}
+
+function getLower(name) {
+    return name.toLowerCase();
+
+}
+
+function getUpper(name) {
+    return name.toUpperCase();
+
+}
+
+function getCapitalized(name) {
+     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+
+}
+
+function getClean(name) {
+    return name.trim();
+
+}
+const answer1 = document.querySelector("#answer1");
+const answer2 = document.querySelector("#answer2");
+const answer3 = document.querySelector("#answer3");
+const answer4 = document.querySelector("#answer4");
+const answer5 = document.querySelector("#answer5");
+const answer6 = document.querySelector("#answer6");
+const answer7 = document.querySelector("#answer7");
+
+const name = document.querySelector("#your-name");
+
+name.addEventListener("keyup", () => {
+    const value = name.value;
+
+    answer1.textContent = getNumberOfChars(value);
+    answer2.textContent = getFirstChar(value);
+    answer3.textContent = getLastChar(value);
+    answer4.textContent = getLower(value);
+    answer5.textContent = getUpper(value);
+    if (value){
+        answer6.textContent = getCapitalized(value);
+    } else {
+        answer6.textContent = "";
+    }
+    answer7.textContent = getClean(value);
+});
+
+
+</script>
+
+</body>
+</html>
